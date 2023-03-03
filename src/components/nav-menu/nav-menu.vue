@@ -1,0 +1,64 @@
+<template>
+    <!-- 菜单导航栏 -->
+    <div>
+        <navTitle></navTitle>
+        <el-menu default-active="0" class="el-menu-vertical-demo" :unique-opened="true" background-color="#021a25"
+            text-color="#ffffff">
+            <template v-for="(item, index) in menuData" :key="index">
+                <template v-if="item.children">
+                    <el-sub-menu :index="item.path + ''">
+                        <template #title>
+                            <!-- 通过icon的名称格式化为组件，组件方式引入才能使用 -->
+                            <!-- <el-icon v-if="item.icon">
+                                <component :is="item.icon" style="width: 16px; height: 16px" />
+                            </el-icon> -->
+                            <span>{{ item.name }}</span>
+                        </template>
+                        <template v-for="(subitem, subIndex) in item.children" :key="subIndex">
+                            <el-menu-item-group>
+                                <el-menu-item :index="(index + '-' + subIndex)">{{ subitem.name }}</el-menu-item>
+                            </el-menu-item-group>
+                        </template>
+                    </el-sub-menu>
+
+                </template>
+                <template v-else>
+                    <el-menu-item :index="index + ''">
+                        <!-- <el-icon v-if="item.icon">
+                            {{item.icon}}
+                            </el-icon> -->
+                        <template #title>{{ item.name }}</template>
+                    </el-menu-item>
+                </template>
+            </template>
+        </el-menu>
+    </div>
+</template>
+
+<script setup lang="ts">
+import navTitle from './nav-title.vue';
+
+import { menuData } from '@/utils/menuData'
+
+</script>
+
+<style scoped lang="scss">
+// .el-menu-vertical-demo {
+//     background-color: rgb(1, 17, 31);
+//     color: #fff !important;
+// }
+.el-menu {
+    border-right: none;
+}
+
+// ::v-deep.el-menu-item-group__title {
+//     padding: 0px !important;
+// }
+// .el-menu-item,.el-sub-menu {
+//     color: #fff !important;
+//     background-color: rgb(1, 17, 31);
+// }
+// ::v-deep .el-sub-menu__title {
+//     color: #fff !important;
+// }
+</style>

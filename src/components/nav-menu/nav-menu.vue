@@ -16,14 +16,14 @@
                         </template>
                         <template v-for="(subitem, subIndex) in item.children" :key="subIndex">
                             <el-menu-item-group>
-                                <el-menu-item :index="(index + '-' + subIndex)">{{ subitem.name }}</el-menu-item>
+                                <el-menu-item :index="(index + '-' + subIndex)" @click="handleMenuItemClick(subitem.path)">{{ subitem.name }}</el-menu-item>
                             </el-menu-item-group>
                         </template>
                     </el-sub-menu>
 
                 </template>
                 <template v-else>
-                    <el-menu-item :index="index + ''">
+                    <el-menu-item :index="index + ''" @click="handleMenuItemClick(item.path)">
                         <!-- <el-icon v-if="item.icon">
                             {{item.icon}}
                             </el-icon> -->
@@ -37,8 +37,16 @@
 
 <script setup lang="ts">
 import navTitle from './nav-title.vue';
-
 import { menuData } from '@/utils/menuData'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+const handleMenuItemClick = (path: any) => {
+    console.log(path)
+    router.push({
+        path: path ?? '/not-found'
+    })
+}
 
 </script>
 

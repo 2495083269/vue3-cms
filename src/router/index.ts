@@ -18,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/main',
-    name: 'mian',
+    name: 'main',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -58,7 +58,7 @@ router.beforeEach((to) => {
 // 进行配置路由
 const route = mapMenusToRouter(menuData)
 route.forEach(item => {
-  router.addRoute('amin',item)
+  router.addRoute('main',item)
 })
 
 console.log("获取到的路径",router)

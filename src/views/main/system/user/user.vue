@@ -1,18 +1,17 @@
 <template>
   <div class="user">
-    <h2>user</h2>
+    <contentTable :userlist="userlist" :prop-list="userPropList"></contentTable>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+import contentTable from '@/components/Ytable/contentTable.vue';
+import { userlist } from '@/utils/tableData'
+import { userPropList } from './userSearchTable'
 
-export default defineComponent({
-  name: 'user',
-  setup() {
-    return {}
-  }
-})
+
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

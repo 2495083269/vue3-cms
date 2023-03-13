@@ -3,6 +3,10 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import { globalRegister } from '@/global'
+import { formatUtcString } from '@/utils/date-format'
+import ElementPlus from 'element-plus'
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
 // 引入样式
 import 'normalize.css'
@@ -22,4 +26,20 @@ import hyRequest from './service'
 //     console.log("请求成功之后获取返回的结果",res)
 // })
 
-createApp(App).use(store).use(router).mount('#app')
+const app = createApp(App)
+
+// 未知原因，没有挂载成功
+app.use(globalRegister)
+
+app.config.globalProperties.$filters = {
+    formatTime(value: string){
+        return formatUtcString(value)
+    }
+}
+
+app.use(ElementPlus, {
+    locale: zhCn,
+  })
+
+// app.config.globalProperties 注册之后可以在全局任何地方使用
+app.use(store).use(router).mount('#app')

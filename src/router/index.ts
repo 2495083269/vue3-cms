@@ -53,6 +53,11 @@ router.beforeEach((to) => {
       return '/login'
     }
   }
+
+  // 配置首次的路由
+  if (to.path == '/main') {
+    return '/main/systemOverview/overview'
+  }
 })
 
 // 进行配置路由

@@ -5,9 +5,14 @@
                 <navMenu></navMenu>
             </el-aside>
             <el-container>
-                <el-header>Header</el-header>
+                <el-header>
+                    <navHeader></navHeader>
+                </el-header>
                 <el-main>
-                    <RouterView></RouterView>
+                    <el-card>
+                        <RouterView></RouterView>
+
+                    </el-card>
                 </el-main>
             </el-container>
         </el-container>
@@ -16,6 +21,7 @@
 
 <script setup lang="ts">
 import navMenu from '@/components/nav-menu/nav-menu.vue';
+import navHeader from '@/components/nav-header/nav-header.vue';
 
 </script>
 
@@ -24,8 +30,14 @@ import navMenu from '@/components/nav-menu/nav-menu.vue';
     width: 100vw;
     height: 100vh;
 }
+
 .main-aside {
     height: 100%;
-    background-color:#021a25 ;
+    background-color: #021a25;
+}
+
+.el-header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #cccc;
 }
 </style>

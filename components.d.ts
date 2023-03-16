@@ -52,6 +52,7 @@ declare module '@vue/runtime-core' {
     NavTitle: typeof import('./src/components/nav-menu/nav-title.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Ycard: typeof import('./src/components/Ycard/Ycard.vue')['default']
     Yform: typeof import('./src/components/Yform/Yform.vue')['default']
     Ytable: typeof import('./src/components/Ytable/Ytable.vue')['default']
   }

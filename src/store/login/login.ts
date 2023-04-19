@@ -23,8 +23,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             // 在这了进行登录操作
             console.log("accountLoginAction登陆中~", payload)
             const loginResult = await accountLoginRequest(payload)
-            const { token } = loginResult.result
-            
+            const token = loginResult.token
             // 获取类型之外的数据将会报错
             // console.log("获取请求之后的返回值",loginResult.result.userInfo)
             // 必须使用commit的方式修改state中的数据状态

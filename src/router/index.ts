@@ -30,6 +30,12 @@ const routes: Array<RouteRecordRaw> = [
     //   component: () => import('../views/main/systemOverview/overView.vue')
     // }]
   },
+  // 个人中心相关页面
+  {
+    path: '/personal',
+    name: 'personal',
+    component: () => import('../views/personal/personalCenter.vue')
+  },
   // 路径错误的提示页面
   {
     path: '/:pahtMatch(.*)*',

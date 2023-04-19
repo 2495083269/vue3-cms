@@ -34,8 +34,8 @@ import { useStore } from 'vuex';
 import type { FormInstance, FormRules } from 'element-plus'
 import localCache from '@/utils/cache'
 const formLabel = reactive({
-    username: 'admin',
-    password: '!QAZ2wsx',
+    username: '',
+    password: '',
 })
 const store = useStore()
 const ruleFormRef = ref<FormInstance>()

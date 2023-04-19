@@ -1,4 +1,4 @@
-// 封装缓存相关的方法
+// 封装缓存相关的方法 window.localStorage长久储存，没有过期时间
 class LocalCache {
     setCache(key: string, value: any) {
         window.localStorage.setItem(key, JSON.stringify(value))
@@ -15,7 +15,7 @@ class LocalCache {
         window.localStorage.removeItem(key)
     }
 
-    clareCache() {
+    clearCache() {
         window.localStorage.clear()
     }
 }

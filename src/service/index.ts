@@ -1,16 +1,21 @@
 import HYRequest from './request'
 import { BASE_URL, TIME_OUT } from './request/config'
+import LocalCache from "@/utils/cache"
 
 const hyRequest = new HYRequest({
     baseURL: BASE_URL,
     timeout: TIME_OUT,
+    // 修改请求头
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Accept: 'application/json'
+    },
     interceptors: {
         requestInterceptor: (config) => {
-            console.log('请求成功拦截')
             // 请求之前加入token
-            const token = ''
+            const token = LocalCache.getCache('token')
             if (token) {
-                config.header.Authorization = token
+                config.headers.Authorization = token
             }
             return config
         },
